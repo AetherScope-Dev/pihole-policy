@@ -13,6 +13,31 @@ The project is intended for homelabs, small businesses, MSP-style deployments, a
 
 ---
 
+## 📑 Table of contents
+
+- [What this does](#-what-this-does)
+- [Why use this?](#-why-use-this)
+- [Policy tiers](#-policy-tiers)
+  - [Standard](#-standard)
+  - [Hardened](#-hardened)
+- [Quick start](#-quick-start)
+- [What happens after installation?](#-what-happens-after-installation)
+- [Architecture](#-architecture)
+- [Repository layout](#-repository-layout)
+- [Verify a deployment](#-verify-a-deployment)
+- [Change policy tiers](#-change-policy-tiers)
+- [Client-specific exceptions](#-client-specific-exceptions)
+- [Troubleshooting](#-troubleshooting)
+- [Quality controls](#-quality-controls)
+- [Safety model](#-safety-model)
+- [Upstream projects](#-upstream-projects)
+- [Licensing & attribution](#-licensing--attribution)
+- [Contributing](#-contributing)
+- [Releases](#-releases)
+- [Disclaimer](#-disclaimer)
+
+---
+
 ## ✨ What this does
 
 - Provides **Standard** and **Hardened** DNS filtering baselines
