@@ -70,12 +70,12 @@ COMMENT_SQL="$(sql_escape "$COMMENT")"
 # Upsert desired policy entries. Existing matching URLs are adopted into policy management.
 for url in "${BLOCKS[@]}"; do
   u="$(sql_escape "$url")"
-  pihole-FTL sqlite3 "$DB" "INSERT INTO adlist(address,enabled,comment,type) VALUES('$u',1,'$COMMENT_SQL',0) ON CONFLICT(address) DO UPDATE SET enabled=1,comment='$COMMENT_SQL',type=0;"
+  pihole-FTL sqlite3 "$DB" "INSERT INTO adlist(address,enabled,comment,type) VALUES('$u',1,'$COMMENT_SQL',0) ON CONFLICT(address,type) DO UPDATE SET enabled=1,comment='$COMMENT_SQL';"
 done
 
 for url in "${ALLOWS[@]}"; do
   u="$(sql_escape "$url")"
-  pihole-FTL sqlite3 "$DB" "INSERT INTO adlist(address,enabled,comment,type) VALUES('$u',1,'$COMMENT_SQL',1) ON CONFLICT(address) DO UPDATE SET enabled=1,comment='$COMMENT_SQL',type=1;"
+  pihole-FTL sqlite3 "$DB" "INSERT INTO adlist(address,enabled,comment,type) VALUES('$u',1,'$COMMENT_SQL',1) ON CONFLICT(address,type) DO UPDATE SET enabled=1,comment='$COMMENT_SQL';"
 done
 
 # Build the desired URL set and remove only stale rows previously managed by this policy.
