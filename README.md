@@ -1,6 +1,11 @@
 # 🛡️ Pi-hole Policy
 
-A centralized, reusable policy framework for **Pi-hole v6** deployments.
+[![CI](https://github.com/AetherScope-Dev/pihole-policy/actions/workflows/ci.yml/badge.svg)](https://github.com/AetherScope-Dev/pihole-policy/actions/workflows/ci.yml)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
+[![Pi-hole v6](https://img.shields.io/badge/Pi--hole-v6-blue.svg)](https://pi-hole.net/)
+[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](CHANGELOG.md)
+
+A centralized, reusable **policy-as-code framework for Pi-hole v6 fleets**.
 
 This repository lets you define a DNS-filtering baseline once, publish it through GitHub, and keep client Pi-holes synchronized automatically. Clients pull the policy manifests from this repo, while Pi-hole Gravity downloads the actual upstream blocklists directly from their original publishers.
 
@@ -18,6 +23,19 @@ This repository lets you define a DNS-filtering baseline once, publish it throug
 - Removes stale policy-managed subscriptions when the manifest changes
 - Runs `pihole updateGravity` after policy reconciliation
 - Avoids distributing giant copied blocklists through this repository
+
+---
+
+## 🧭 Why use this?
+
+| Approach | Central policy | Automatic reconciliation | Preserves local exceptions | Pulls upstream directly | Tiered security posture |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Manual Pi-hole configuration | ❌ | ❌ | ✅ | ✅ | ❌ |
+| Backup / restore workflow | ⚠️ | ❌ | ⚠️ | ✅ | ❌ |
+| Plain blocklist repository | ⚠️ | ❌ | ✅ | ⚠️ | ❌ |
+| **AetherScope Pi-hole Policy** | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+This project is designed for people managing more than one Pi-hole who want repeatable configuration without cloning an entire database from system to system.
 
 ---
 
@@ -56,6 +74,22 @@ Includes everything below:
 - HaGeZi **Referral Allowlist**
 
 > ⚠️ **Hardened is intentionally aggressive.** It can block legitimate newly registered domains, shared hosting infrastructure, VPN/proxy services, and legitimate domains under high-abuse TLDs. Deploy it where that tradeoff is intentional.
+
+### Tier comparison
+
+| Capability | Standard | Hardened |
+|---|:---:|:---:|
+| Ads / trackers / telemetry | ✅ | ✅ |
+| Malware / phishing / C2 intelligence | ✅ | ✅ |
+| Dynamic DNS abuse | ✅ | ✅ |
+| Referral compatibility allowlist | ✅ | ✅ |
+| Maximum HaGeZi privacy tier | — | ✅ |
+| Badware-host blocking | — | ✅ |
+| High-abuse TLD blocking | — | ✅ |
+| DoH / VPN / Tor / proxy bypass blocking | — | ✅ |
+| 35-day newly registered domain coverage | — | ✅ |
+| False-positive risk | Lower | Higher |
+| Recommended default | ✅ | Only when intentional |
 
 ---
 
@@ -267,6 +301,21 @@ pihole status
 
 ---
 
+## 🧪 Quality controls
+
+Every push and pull request is checked automatically with GitHub Actions.
+
+| Check | Purpose |
+|---|---|
+| ShellCheck | Lints all Bash scripts for common correctness and portability problems |
+| Manifest formatting | Rejects empty manifests, duplicate URLs, and non-HTTPS entries |
+| Upstream URL validation | Confirms every configured feed can still be reached |
+| Tag-driven releases | Tags matching `v*` can automatically publish GitHub releases |
+
+See [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [SECURITY.md](SECURITY.md) for project maintenance details.
+
+---
+
 ## 🛡️ Safety model
 
 This project is intentionally designed to avoid replacing a client's entire Pi-hole configuration.
@@ -309,7 +358,9 @@ If you redistribute or materially modify third-party content, review the applica
 
 ## 🤝 Contributing
 
-Pull requests and issue reports are welcome.
+Pull requests and issue reports are welcome. GitHub issue templates are included for bugs and feature requests.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) before proposing manifest or script changes.
 
 When changing a manifest:
 
@@ -318,6 +369,14 @@ When changing a manifest:
 - Note meaningful false-positive or usability risk
 - Prefer original upstream URLs
 - Avoid redundant lists already covered by the selected HaGeZi tier
+
+---
+
+## 📦 Releases
+
+The initial public baseline is documented as **v1.0.0** in [CHANGELOG.md](CHANGELOG.md).
+
+The repository includes a release workflow: pushing a Git tag such as `v1.0.0` will create the corresponding GitHub Release automatically.
 
 ---
 
