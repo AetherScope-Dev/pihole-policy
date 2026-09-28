@@ -1,0 +1,2 @@
+# Standard subscribed allowlists
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/whitelist-referral.txt
