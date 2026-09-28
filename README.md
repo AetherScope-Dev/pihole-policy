@@ -5,24 +5,24 @@
 [![Pi-hole v6](https://img.shields.io/badge/Pi--hole-v6-blue.svg)](https://pi-hole.net/)
 [![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](CHANGELOG.md)
 
-A centralized, reusable **policy-as-code framework for Pi-hole v6 fleets**.
+**Pi-hole Policy** is a centralized policy-as-code framework for deploying and maintaining consistent DNS filtering across **Pi-hole v6** systems.
 
-This repository lets you define a DNS-filtering baseline once, publish it through GitHub, and keep client Pi-holes synchronized automatically. Clients pull the policy manifests from this repo, while Pi-hole Gravity downloads the actual upstream blocklists directly from their original publishers.
+It provides reusable **Standard** and **Hardened** security baselines, automated policy synchronization, and safe reconciliation of managed subscriptions without replacing local Pi-hole configuration. Upstream feeds remain sourced directly from their original publishers and are refreshed through Pi-hole Gravity.
 
-> 💡 **Goal:** make Pi-hole deployments consistent, repeatable, easy to maintain, and easy to explain to clients.
+The project is intended for homelabs, small businesses, MSP-style deployments, and other environments where multiple Pi-hole instances need a consistent, auditable DNS security posture.
 
 ---
 
 ## ✨ What this does
 
-- Provides **Standard** and **Hardened** DNS policy tiers
-- Keeps client Pi-holes synchronized automatically
-- Preserves client-specific local allow/deny rules
-- Tags policy-managed subscriptions so they can be safely reconciled
-- Keeps upstream feeds sourced directly from their original publishers
-- Removes stale policy-managed subscriptions when the manifest changes
+- Provides **Standard** and **Hardened** DNS filtering baselines
+- Synchronizes policy across multiple Pi-hole deployments
+- Preserves site-specific local allow/deny rules
+- Tags policy-managed subscriptions for safe reconciliation
+- Pulls upstream feeds directly from their original publishers
+- Removes stale policy-managed subscriptions when manifests change
 - Runs `pihole updateGravity` after policy reconciliation
-- Avoids distributing giant copied blocklists through this repository
+- Keeps the repository lightweight by storing policy manifests instead of copied upstream datasets
 
 ---
 
@@ -35,7 +35,7 @@ This repository lets you define a DNS-filtering baseline once, publish it throug
 | Plain blocklist repository | ⚠️ | ❌ | ✅ | ⚠️ | ❌ |
 | **AetherScope Pi-hole Policy** | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-This project is designed for people managing more than one Pi-hole who want repeatable configuration without cloning an entire database from system to system.
+Pi-hole Policy provides repeatable configuration across multiple systems without requiring full database cloning or destructive configuration replacement.
 
 ---
 
