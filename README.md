@@ -127,7 +127,7 @@ curl -fsSL https://raw.githubusercontent.com/AetherScope-Dev/pihole-policy/main/
   -o /tmp/pihole-policy-install.sh
 ```
 
-### 2. Review it
+### 2. Review it (Optional)
 
 ```bash
 less /tmp/pihole-policy-install.sh
