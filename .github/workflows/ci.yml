@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Lint shell scripts
+        run: shellcheck scripts/*.sh
+
+  manifests:
+    name: Validate manifests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate formatting and URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mapfile -t manifests < <(find manifests -maxdepth 1 -type f -name '*.txt' | sort)
+          test "${#manifests[@]}" -gt 0
+
+          for file in "${manifests[@]}"; do
+            echo "::group::Validating $file"
+
+            mapfile -t urls < <(grep -Ev '^[[:space:]]*(#|$)' "$file" | sed 's/[[:space:]]*$//')
+
+            if (( ${#urls[@]} == 0 )); then
+              echo "::error file=$file::Manifest has no URLs"
+              exit 1
+            fi
+
+            dupes="$(printf '%s\n' "${urls[@]}" | sort | uniq -d)"
+            if [[ -n "$dupes" ]]; then
+              echo "::error file=$file::Duplicate URLs found"
+              printf '%s\n' "$dupes"
+              exit 1
+            fi
+
+            for url in "${urls[@]}"; do
+              if [[ ! "$url" =~ ^https:// ]]; then
+                echo "::error file=$file::Only HTTPS URLs are allowed: $url"
+                exit 1
+              fi
+
+              echo "Checking $url"
+              curl --fail --silent --show-error --location                 --retry 2 --retry-delay 2 --connect-timeout 10 --max-time 45                 --output /dev/null "$url"
+            done
+
+            echo "::endgroup::"
+          done
