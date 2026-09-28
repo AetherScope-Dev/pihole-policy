@@ -1,0 +1,12 @@
+# Hardened subscribed blocklists
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/ultimate.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/dyndns.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/hoster.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/spam-tlds-adblock.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/doh-vpn-proxy-bypass.txt
+https://cdn.jsdelivr.net/gh/hagezi/nrd@latest/adblock/nrd7.txt
+https://cdn.jsdelivr.net/gh/hagezi/nrd@latest/adblock/nrd14-8.txt
+https://cdn.jsdelivr.net/gh/hagezi/nrd@latest/adblock/nrd21-15.txt
+https://cdn.jsdelivr.net/gh/hagezi/nrd@latest/adblock/nrd28-22.txt
+https://cdn.jsdelivr.net/gh/hagezi/nrd@latest/adblock/nrd35-29.txt
