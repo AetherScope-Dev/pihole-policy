@@ -7,9 +7,11 @@
 
 **Pi-hole Policy** is a centralized policy-as-code framework for deploying and maintaining consistent DNS filtering across **Pi-hole v6** systems.
 
+**Deploy and maintain a consistent Pi-hole security baseline in seconds instead of manually configuring blocklists on every system.**
+
 It provides reusable **Standard** and **Hardened** security baselines, automated policy synchronization, and safe reconciliation of managed subscriptions without replacing local Pi-hole configuration. Upstream feeds remain sourced directly from their original publishers and are refreshed through Pi-hole Gravity.
 
-The project is intended for homelabs, small businesses, MSP-style deployments, and other environments where multiple Pi-hole instances need a consistent, auditable DNS security posture.
+The project is intended for homelabs, small businesses, MSP-style deployments, and other environments where multiple Pi-hole instances need a consistent, auditable DNS security posture with less manual setup and less configuration drift.
 
 ---
 
