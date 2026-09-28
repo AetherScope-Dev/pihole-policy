@@ -152,26 +152,26 @@ By default, client policy reconciliation runs daily at:
 ## 🗺️ Architecture
 
 ```text
-              ┌──────────────────────────────┐
-              │  AetherScope Pi-hole Policy │
-              │          GitHub Repo          │
-              └──────────────┬───────────────┘
-                             │
-                Policy manifests only
-                             │
-                 ┌───────────┴───────────┐
-                 │                       │
-                 ▼                       ▼
-          🟢 Standard Client       🔴 Hardened Client
-                 │                       │
-                 └───────────┬───────────┘
-                             │
-                             ▼
-                       Pi-hole Gravity
-                             │
-                             ▼
-                 Original upstream feeds
-                    downloaded directly
+┌──────────────────────────────────┐
+│   AetherScope Pi-hole Policy     │
+│            GitHub Repo           │
+└─────────────────┬────────────────┘
+                  │
+                  │  Policy manifests only
+                  │
+        ┌─────────┴─────────┐
+        │                   │
+        ▼                   ▼
+  Standard Client     Hardened Client
+        │                   │
+        └─────────┬─────────┘
+                  │
+                  ▼
+            Pi-hole Gravity
+                  │
+                  ▼
+       Original upstream feeds
+          downloaded directly
 ```
 
 The repository acts as the **policy control plane**.
