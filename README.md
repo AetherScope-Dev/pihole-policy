@@ -10,14 +10,14 @@ This repository lets you define a DNS-filtering baseline once, publish it throug
 
 ## ✨ What this does
 
-- 📦 Provides **Standard** and **Hardened** DNS policy tiers
-- 🔄 Keeps client Pi-holes synchronized automatically
-- 🧩 Preserves client-specific local allow/deny rules
-- 🏷️ Tags policy-managed subscriptions so they can be safely reconciled
-- 🌐 Keeps upstream feeds sourced directly from their original publishers
-- 🧹 Removes stale policy-managed subscriptions when the manifest changes
-- ⚡ Runs `pihole updateGravity` after policy reconciliation
-- 🔐 Avoids distributing giant copied blocklists through this repository
+- Provides **Standard** and **Hardened** DNS policy tiers
+- Keeps client Pi-holes synchronized automatically
+- Preserves client-specific local allow/deny rules
+- Tags policy-managed subscriptions so they can be safely reconciled
+- Keeps upstream feeds sourced directly from their original publishers
+- Removes stale policy-managed subscriptions when the manifest changes
+- Runs `pihole updateGravity` after policy reconciliation
+- Avoids distributing giant copied blocklists through this repository
 
 ---
 
@@ -31,10 +31,10 @@ Designed to provide strong privacy, ad/tracker blocking, and threat protection w
 
 Includes:
 
-- 🧹 HaGeZi **Multi Pro**
-- 🛡️ HaGeZi **Threat Intelligence Feeds (TIF)**
-- 🌐 HaGeZi **Dynamic DNS Abuse**
-- ✅ HaGeZi **Referral Allowlist**
+- HaGeZi **Multi Pro**
+- HaGeZi **Threat Intelligence Feeds (TIF)**
+- HaGeZi **Dynamic DNS Abuse**
+- HaGeZi **Referral Allowlist**
 
 **Best fit:** homes, small businesses, general client deployments, and environments where reliability matters more than maximum filtering aggressiveness.
 
@@ -46,14 +46,14 @@ For environments where a stricter DNS security posture is desired and occasional
 
 Includes everything below:
 
-- 🧹 HaGeZi **Multi Ultimate**
-- 🛡️ HaGeZi **Threat Intelligence Feeds (TIF)**
-- 🌐 HaGeZi **Dynamic DNS Abuse**
-- ☣️ HaGeZi **Badware Hoster**
-- 🚨 HaGeZi **Most Abused TLDs**
-- 🚧 HaGeZi **DoH / VPN / Tor / Proxy Bypass**
-- 🆕 HaGeZi **Newly Registered Domains (NRD)** — rolling 35-day coverage
-- ✅ HaGeZi **Referral Allowlist**
+- HaGeZi **Multi Ultimate**
+- HaGeZi **Threat Intelligence Feeds (TIF)**
+- HaGeZi **Dynamic DNS Abuse**
+- HaGeZi **Badware Hoster**
+- HaGeZi **Most Abused TLDs**
+- HaGeZi **DoH / VPN / Tor / Proxy Bypass**
+- HaGeZi **Newly Registered Domains (NRD)** — rolling 35-day coverage
+- HaGeZi **Referral Allowlist**
 
 > ⚠️ **Hardened is intentionally aggressive.** It can block legitimate newly registered domains, shared hosting infrastructure, VPN/proxy services, and legitimate domains under high-abuse TLDs. Deploy it where that tradeoff is intentional.
 
@@ -271,13 +271,13 @@ pihole status
 
 This project is intentionally designed to avoid replacing a client's entire Pi-hole configuration.
 
-- ✅ Requires **Pi-hole v6**
-- ✅ Preserves unrelated adlists
-- ✅ Preserves local exact/regex domain rules
-- ✅ Reconciles only rows tagged with `[AetherScope policy:...]`
-- ✅ Pulls blocklists directly from upstream providers
-- ✅ Keeps the central repository lightweight and auditable
-- ✅ Makes aggressive controls opt-in through the Hardened tier
+- Requires **Pi-hole v6**
+- Preserves unrelated adlists
+- Preserves local exact/regex domain rules
+- Reconciles only rows tagged with `[AetherScope policy:...]`
+- Pulls blocklists directly from upstream providers
+- Keeps the central repository lightweight and auditable
+- Makes aggressive controls opt-in through the Hardened tier
 
 ---
 
@@ -313,11 +313,11 @@ Pull requests and issue reports are welcome.
 
 When changing a manifest:
 
-- 🧪 Test the list first
-- 📝 Document why it belongs in Standard or Hardened
-- ⚠️ Note meaningful false-positive or usability risk
-- 🔗 Prefer original upstream URLs
-- ♻️ Avoid redundant lists already covered by the selected HaGeZi tier
+- Test the list first
+- Document why it belongs in Standard or Hardened
+- Note meaningful false-positive or usability risk
+- Prefer original upstream URLs
+- Avoid redundant lists already covered by the selected HaGeZi tier
 
 ---
 
