@@ -1,0 +1,44 @@
+name: Bug report
+description: Report a reproducible problem with installation, synchronization, or verification.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Please remove secrets, private domains, and client-identifying information before posting.
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Policy tier
+      options:
+        - Standard
+        - Hardened
+        - Not applicable
+    validations:
+      required: true
+  - type: input
+    id: pihole
+    attributes:
+      label: Pi-hole version
+      placeholder: "v6.x"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the expected and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Relevant command output
+      render: shell
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
