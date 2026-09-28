@@ -405,6 +405,14 @@ The repository includes a release workflow: pushing a Git tag such as `v1.0.0` w
 
 ---
 
+## 👤 Maintainer
+
+Pi-hole Policy is developed and maintained by [AetherScope-Dev](https://github.com/AetherScope-Dev).
+
+Copyright © 2026 AetherScope-Dev
+
+---
+
 ## 📌 Disclaimer
 
 DNS filtering reduces exposure to unwanted and malicious domains, but it is not a substitute for endpoint security, patching, MFA, browser protections, network segmentation, backups, or user awareness.
