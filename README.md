@@ -34,6 +34,7 @@ The project is intended for homelabs, small businesses, MSP-style deployments, a
 - [Licensing & attribution](#-licensing--attribution)
 - [Contributing](#-contributing)
 - [Releases](#-releases)
+- [Maintainer](#-maintainer)
 - [Disclaimer](#-disclaimer)
 
 ---
@@ -408,6 +409,8 @@ The repository includes a release workflow: pushing a Git tag such as `v1.0.0` w
 ## 👤 Maintainer
 
 Pi-hole Policy is developed and maintained by [AetherScope-Dev](https://github.com/AetherScope-Dev).
+
+If Pi-hole Policy is useful to you, consider giving the repository a ⭐. Stars help other Pi-hole, homelab, and self-hosted users discover the project.
 
 Copyright © 2026 AetherScope-Dev
 
